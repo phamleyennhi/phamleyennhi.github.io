@@ -324,182 +324,44 @@
       </div>
     </div>
 
-
-    <!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-max-desktop">
-          <h2 class="title is-3" style="color: #006c66;">Method</h2>
-          <div class="content has-text-justified">
-            <div class="method-block">
-              <div class="method-block-text">
-                <h3><span style="color: #006c66;">CAVE </span>: A 3D-Aware Inherently Interpretable Classifier</h3>
-                <img src="./static/images/overview_CAVE.png" alt="overview" , style="max-width: 100%;">
-                <p>We introduce <span style="color: #006c66;">CAVE </span>, a framework that allows for robust
-                  conceptual reasoning and classification through interpretable
-                  3D-aware neural object volumes (NOVs). <b>(1)</b> Given the NOV of class Car, <span
-                    style="color: #006c66;">CAVE
-                  </span> first extracts
-                  concepts via
-                  clustering on Gaussian features g<sub>Car</sub><sup>(k)</sup> and represent the mean feature of each
-                  Gaussian
-                  cluster as a
-                  concept h<sub>Car</sub><sup>(t)</sup>. Note that the clusters here are visually refined for
-                  illustrative
-                  purposes to better
-                  convey our method. For classification, <span style="color: #006c66;">CAVE </span> combines image
-                  features F<sub>x</sub> in <b>(2)</b> and
-                  interpretable
-                  concept-aware NOVs <span
-                    style="font-family: 'Lucida Calligraphy', 'Monotype Corsiva', 'URW Chancery L', 'Apple Chancery', 'Tex Gyre Chorus', cursive, serif;">H</span>
-                  in <b>(3)</b> through a bag-of-word concept matching step
-                  <b>(4)</b>,
-                  where each
-                  feature f<sub>i</sub> &isin; F<sub>x</sub> is best aligned with <span
-                    style="font-family: 'Lucida Calligraphy', 'Monotype Corsiva', 'URW Chancery L', 'Apple Chancery', 'Tex Gyre Chorus', cursive, serif;">H</span>
-                  by cosine similarity. The logit
-                  for class
-                  y
-                  is computed as
-                  the sum of cosine similarities over F<sub>x</sub>, considering only features mapped to its cluster
-                  <b>(5)</b>.
-                </p>
-              </div>
-            </div>
-            <div class="method-block">
-              <div class="method-block-text">
-                <h3>LRP with Conservation for <span style="color: #006c66;">CAVE </span></h3>
-                <p>LRP is, however, only defined for standard architectures and does not yield meaningful
-                  attributions for NOV-based
-                  classifications, attributing only to a few pixels rather than correctly to whole object features. We
-                  introduce LRP for <span style="color: #006c66;">CAVE </span>-like architectures. <b>Top:</b> At an
-                  upsampling layer U, feature maps A<sub>v</sub> and A<sub>v+l</sub> from non-consecutive layers are
-                  concatenated
-                  after padding for dimensional consistency. The relevance score R is split into R<sub>v</sub> and
-                  R<sub>v+l</sub>, where
-                  R<sub>v+l</sub> is masked to exclude padding contributions. <b>Bottom:</b> We ensure spatial
-                  consistency
-                  by mapping relevance R<sub><span
-                      style="font-family: 'Lucida Calligraphy', 'Monotype Corsiva', 'URW Chancery L', 'Apple Chancery', 'Tex Gyre Chorus', cursive, serif;">M</span></sub>
-                  from the matching layer to the corresponding
-                  feature f<sub>i</sub> &isin; F<sub>x</sub>, then distributing channel-wise with NOV-weighted feature
-                  importance.</p>
-              </div>
-              <img src="./static/images/lrp.png" alt="lrp" , style="max-width: 50%;">
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width has-text-centered">
-          <h2 class="title is-3" style="color:#006c66;">Evaluation</h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h4 class="title is-4 has-text-centered" style="color: #006c66;">3D Consistency of Concepts</h4>
-        <div class="method-block-text">
-          <p>We evaluate the consistency of concepts with our novel metric <span style="color: #006c66;">3D
-              Consistency</span>, where a concept is mapped to an object part in 3D ground-truth CAD
-            models. Here we show 6 concepts of class Bicycle corresponding to those in Fig. 1, where each illustrates
-            the
-            aggregated concept relevance across 100 test images onto the mesh surface.</p>
-        </div>
-        <div class="column is-max-desktop">
-          <img class="image-wrapper sudoku" src="./static/images/CADs.png" alt="CAD">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h4 class="title is-4 has-text-centered" style="color: #006c66;">Robustness & Interpretability of Concepts</h4>
-        <div class="method-block-text">
-          <p>We evaluate the robustness of concepts by measuring model <b>Accuracy</b> across diverse OOD settings.
-            <span style="color: #006c66;">CAVE</span> performs best in both in-distribution and OOD scenarios,
-            experiencing
-            only a slight deterioration in performance compared to other baseline methods. For
-            interpretability, our metrics are designed to quantify key properties that address the question: <i>to what
-              extent are our explanations aligned with human-annotated object parts?</i> This includes: <b>IoU</b>,
-            <b>Local
-              Coverage</b>, <b>Global Coverage</b> and <b>Pureness</b>. Here, we show a qualitative example of a car
-            with 40%
-            occlusion, where existing methods fail to provide reliable explanations due to their sensitivity to missing
-            object parts. <span style="color: #006c66;">CAVE</span> focuses on more informative regions despite the
-            occlusion, demonstrating better
-            resilience to missing object parts. This highlights the importance of robust explanations when dealing with
-            OOD challenges.
-          </p>
-        </div>
-        &nbsp
-        <div class="column is-max-desktop">
-          <img class="image-wrapper" src="./static/images/FGL2.png" alt="occ">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h4 class="title is-4 has-text-centered" style="color: #006c66;">CAVE's Concept Visualisation</h4>
-        <p>Example concepts learned by <span style="color: #006c66;">CAVE</span> for different classes.</p>
-        <div class="carousel results-carousel images-carousel">
-          <div class="item item-sandra">
-            <div class="plot_wrapper">
-              <div class="content results-image row">
-                <img src="./static/images/qual_1.png" alt="qual_1" , class="image-wrapper">
-              </div>
-            </div>
-          </div>
-          <div class="item item-doge">
-            <div class="plot_wrapper">
-              <div class="content results-image row">
-                <img src="./static/images/qual_2.png" alt="qual_2" , class="image-wrapper">
-              </div>
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <div class="column is-max-desktop">
+            <h2 class="title" style="color: #006c66;">Acknowledgement</h2>
+            <div class="content has-text-justified">
+              <p>
+                We thank Christopher Wewer for insightful discussions on 3D consistency evaluation, and careful
+                proofreading of our
+                paper. Additionally, our codebase is built upon the <a href="https://github.com/GenIntel/NOVUM">NOVUM
+                  implementation by Artur Jesslen</a>, and <a href="https://github.com/keio-smilab24/LRP-for-ResNet">LRP
+                  for ResNet by Seitaro Otsuki</a>.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop content">
-      <h2 class="title" style="color: #006c66;">Acknowledgments</h2>
-      <div class="method-block-text">
-        Nhi Pham was funded by the <i>International Max Planck Research School on Trustworthy Computing
-          (IMPRS-TRUST)</i> program.
-        We thank Christopher Wewer for his support with the NOVUM codebase, insightful discussions on 3D consistency
-        evaluation,
-        and careful proofreading of our paper. We also thank Artur Jesslen for his help with NOVUM codebase
-        issues. Additionally, we thank Ada Görgün and Amin Parchami-Araghi for their helpful discussions.
-      </div>
-    </div>
-  </section> -->
+    </section>
 
     <section class="section" id="BibTeX">
-      <div class="container is-max-desktop content">
-        <h2 class="title" style="color: #006c66;">BibTeX</h2>
-        <pre><code>@inproceedings{pham26interpretable,
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <div class="column is-max-desktop">
+            <h2 class="title" style="color: #006c66;">BibTeX</h2>
+            <div class="content has-text-justified">
+              <p>
+                If you find our work useful in your research, please consider citing:
+              </p>
+            </div>
+            <pre><code>@inproceedings{pham26interpretable,
     title     = {Robust Conceptual Reasoning through Interpretable 3D Neural Object Volumes},
     author    = {Pham, Nhi and Jesslen, Artur and Schiele, Bernt and Kortylewski, Adam and Fischer, Jonas},
     booktitle = {The Fourteenth International Conference on Learning Representations},
     year      = {2026},
     url       = {https://openreview.net/forum?id=VSPLa2Sito}
 }</code></pre>
+          </div>
+        </div>
       </div>
     </section>
 
