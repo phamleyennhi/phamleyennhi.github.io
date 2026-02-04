@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Robust Conceptual Reasoning through Interpretable 3D Neural Object Volumes">
+  <meta name="description" content="Interpretable 3D Neural Object Volumes for Robust Conceptual Reasoning">
   <meta name="keywords" content="CAVE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CAVE: Robust Conceptual Reasoning through Interpretable 3D Neural Object Volumes</title>
+  <title>CAVE: Interpretable 3D Neural Object Volumes for Robust Conceptual Reasoning</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -51,24 +51,26 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Escaping Plato's <span style="color: #006c66;">Cave</span>: <br>
-              Robust Conceptual Reasoning through<br>
-              Interpretable 3D Neural Object Volumes</h1>
+            <h1 class="title is-1 publication-title"><span style="color: #006c66;">CAVE</span>:
+              Interpretable 3D Neural Object Volumes for Robust Conceptual Reasoning</h1>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
+              <span class="author-inline-block">
                 <a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/nhi-pham/">Nhi
                   Pham<sup>1</sup></a>,
               </span>
-              <span class="author-block">
+              <span class="author-inline-block">
+                <a href="https://artur.jesslen.ch/">Artur Jesslen<sup>2</sup></a>,
+              </span>
+              <span class="author-inline-block">
                 <a
                   href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele">Bernt
                   Schiele<sup>1</sup></a>,
               </span>
-              <span class="author-block">
-                <a href="https://genintel.mpi-inf.mpg.de/">Adam Kortylewski<sup>*1,2</sup></a>,
+              <span class="author-inline-block">
+                <a href="https://genintel.mpi-inf.mpg.de/">Adam Kortylewski<sup>*3</sup></a>,
               </span>
-              <span class="author-block">
+              <span class="author-inline-block">
                 <a href="https://explainablemachines.com/members/jonas-fischer.html">Jonas Fischer<sup>*1</sup></a>
               </span>
             </div>
@@ -77,21 +79,25 @@
               <span class="author-block"><sup>1</sup>Max Planck Institute for Informatics, Saarland Informatics Campus,
                 Germany</span>
               <span class="author-block"><sup>2</sup>University of Freiburg, Germany</span>
+              <span class="author-block"><sup>3</sup>CISPA Helmholtz Center for Information Security, Germany</span>
             </div>
             <div class="is-size-6 publication-authors">
               <span class="author-block"><sup>*</sup>Equal senior advisorship</span>
             </div>
 
+            <div class="is-size-5 publication-authors">
+              <span class="publication-venue">Accepted at ICLR 2026</span>
+            </div>
+
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="./static/assets/CAVE.pdf" class="external-link button is-normal is-rounded is-dark"
-                    target="_blank">
+                  <a href="https://openreview.net/forum?id=VSPLa2Sito"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Paper</span>
+                    <span>OpenReview</span>
                   </a>
                 </span>
                 <span class="link-block">
@@ -126,15 +132,19 @@
       <div class="hero-body">
         <img src="./static/images/teaser.png" alt="teaser">
       </div>
-      <p> <b>Figure 1.</b> We introduce <span style="color: #006c66;">CAVE - Concept Aware Volumes for
-          Explanations</span>. <b>Left:</b>
-        We learn 3D object volumes, here
-        cuboids, with concept representations. Each concept captures distinct local features of objects.
-        <b>Right:</b> At
-        inference, these concepts are matched with 2D image features, achieving robust and interpretable image
-        classification.
-      </p>
-    </div>
+      <div class="method-block img content has-text-justified">
+        <p> <span style="color: #006c66;"><b>CAVE</b> - <b>C</b>oncept <b>A</b>ware <b>V</b>olumes for
+            <b>E</b>xplanations</span>. <b>(a)</b>
+          We learn 3D object volumes (left), here <b>ellipsoids with concept representations </b>. Each concept captures
+          distinct local features of objects (color coded). At inference (right), these concepts are matched with 2D
+          image
+          features, achieving robust and interpretable image classification. <b>(b)</b> CAVE achieves the best
+          <b>robustness vs. interpretability tradeoff</b> across methods (higher is better on both axes). Here, we
+          measure robustness with
+          vs. interpretability tradeoff across methods (higher is better on both axes). Here, we measure robustness with
+          OOD accuracy (%), and interpretability with concept spatial localisation.
+        </p>
+      </div>
   </section>
 
   <section class="section">
@@ -144,26 +154,27 @@
           <h2 class="title is-3" style="color: #006c66;">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              With the rise of neural networks, especially in high-stakes applications, these networks need two
-              properties (i)
-              robustness and (ii) interpretability to ensure their safety. Recent advances in classifiers with
-              3D
-              volumetric object
-              representations have demonstrated greatly enhanced robustness in out-of-distribution data. However, these
-              3D-aware
-              classifiers have not been studied from the perspective of interpretability. We introduce <span
-                style="color: #006c66;">CAVE </span>- <span style="color: #006c66;">Concept
-                Aware Volumes
-                for Explanations </span>- a new direction that unifies interpretability and robustness in image
-              classification.
-              We design an
-              inherently-interpretable and robust classifier by extending existing 3D-aware classifiers with concepts
-              extracted from
-              their volumetric representations for classification. In an array of quantitative metrics for
-              interpretability, we
-              compare against different concept-based approaches across the explainable AI literature and show that CAVE
-              discovers
-              well-grounded concepts that are used consistently across images, while achieving superior robustness.
+
+              With the rise of deep neural networks, especially in safety-critical applications, robustness and
+              interpretability are
+              crucial to ensure their trustworthiness. Recent advances in 3D-aware classifiers that map image features
+              to volumetric
+              representation of objects, rather than relying solely on 2D appearance, have greatly improved robustness
+              on
+              out-of-distribution (OOD) data. Such classifiers have not yet been studied from the perspective of
+              interpretability.
+              Meanwhile, current concept-based XAI methods often neglect OOD robustness. We aim to address both aspects
+              with <span style="color: #006c66;"><b>CAVE</b> - <b>C</b>oncept <b>A</b>ware <b>V</b>olumes for
+                <b>E</b>xplanations</span> - a new direction that unifies interpretability and robustness in image
+              classification. We design CAVE as a robust and inherently interpretable classifier that learns sparse
+              concepts from 3D
+              object representation. We further propose 3D Consistency, a metric to measure spatial consistency
+              of concepts.
+              Unlike existing metrics that rely on human-annotated parts on images, 3D-C leverages ground-truth object
+              meshes as a common surface to project and compare explanations across concept-based methods. CAVE achieves
+              competitive
+              classification performance while discovering consistent and meaningful concepts across images in various
+              OOD settings.
             </p>
           </div>
         </div>
@@ -174,15 +185,88 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-max-desktop">
-          <h2 class="title is-3" style="color: #006c66;">Motivation</h2>
-          <div class="method-block-text">
-            <p> Existing image classifiers are <b>either</b> inherent interpretable <b>or</b> robust. We introduce <span
-                style="color: #006c66;">CAVE </span>- <span style="color: #006c66;">Concept
-                Aware Volumes
-                for Explanations </span>- a new direction that <b>unifies</b> inherent interpretability and robustness
-              in image
-              classification.</p>
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="color: #006c66;">Concepts Grounded in 3D Geometry</h2>
+          <div class="content has-text-justified">
+            <div class="content has-text-justified">
+              <p>
+                Our intuition is simple: humans naturally form high-level concepts that are consistent across different
+                viewpoints and
+                appearances of
+                objects. Inspired by this, we leverage object-centric 3D geometry to produce explanations that
+                remain
+                consistent under distribution shifts. By
+                grounding concepts in neural object volumes, our explanations are model-faithful and
+                robust to
+                occlusions and viewpoint changes. Our approach <span style="color: #006c66;"><b>CAVE</b></span>
+                represents
+                objects with ellipsoid neural volumes,
+                which provide a compact yet expressive 3D shape prior without
+                requiring detailed CAD supervision.
+              </p>
+            </div>
+            <div class="method-block img">
+              <img src="./static/images/NOVs.png" alt="motivation" , style="max-width: 100%;">
+            </div>
+
+            <div class="columns is-vcentered">
+              <!-- Left: text -->
+              <div class="column is-5">
+                <div class="content has-text-justified">
+                  <p>
+                    Unlike NOVUM (Jesslen et al., 2024), which relies on dense, opaque Gaussian features distributed
+                    across the object
+                    surface, <span style="color: #006c66;"><b>CAVE</b></span> organises these features into a sparse set
+                    of semantically
+                    meaningful concepts. This structured grouping makes the underlying representation more interpretable
+                    by
+                    explicitly linking
+                    regions of the 3D volume to high-level concepts, while still preserving the robustness of
+                    volumetric modeling
+                    under OOD settings.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right: image -->
+              <div class="column is-8">
+                <figure class="image">
+                  <img src="./static/images/novum_cave.png" alt="NOVUM vs CAVE comparison">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="color: #006c66;">Method</h2>
+          <div class="content has-text-justified">
+            <div class="method-block img">
+              <img src="./static/images/method.png" alt="method" , style="max-width: 100%;">
+            </div>
+            <p>
+              We introduce <span style="color: #006c66;"><b>CAVE</b></span>, a framework for robust conceptual reasoning
+              and
+              classification
+              through 3D-aware <b>concept-based ellipsoid neural object volumes (NOVs)</b>. In this visual illustration,
+              colors
+              indicate the
+              top-5 concepts within each class. For classification, CAVE combines <b>(a)</b> extracted image features
+              <i>F</i><sub>x</sub> and <b>(b)</b> interpretable sparse concept-aware NOVs <span>&#x210B;</span> through
+              a
+              bag-of-word
+              concept matching <b>(c)</b>, where each feature
+              <i>f</i><sub>i</sub> &isin; <i>F</i><sub>x</sub> is best aligned with <span>&#x210B;</span> by cosine
+              similarity.
+              Correct classification happens when many image features activate Car concepts, while concepts in other
+              classes fail to
+              align with any feature (crossed-out arrows).
+            </p>
           </div>
         </div>
       </div>
@@ -190,6 +274,58 @@
   </section>
 
   <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="color: #006c66;">3D Consistency of Concepts</h2>
+          <div class="content has-text-justified">
+            <div class="method-block img">
+              <img src="./static/images/3dc.png" alt="3dc" , style="max-width: 100%;">
+            </div>
+            <p>
+              We introduce <b>3D consistency (3D-C)</b>, a geometry-based metric that measures if a concept
+              consistently
+              maps to the
+              same semantic region of an object across viewpoints and distribution shifts. By projecting concept
+              attributions onto a
+              common 3D object surface, 3D-C evaluates concept stability without relying on human-annotated parts,
+              providing
+              a principled
+              measure of concept consistency. Higher 3D-C means more consistent mapping to the same
+              region.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="color: #006c66;">Attributing Concepts with 3D-aware LRP</h2>
+          <div class="content has-text-justified">
+            <div class="method-block img">
+              <img src="./static/images/lrp.png" alt="lrp" , style="max-width: 100%;">
+            </div>
+            <p>
+              To obtain input-level explanations for our neural object volume concepts, we adapt layer-wise
+              relevance
+              propagation (LRP) to volumetric architectures. Our 3D-aware redistribution rule preserves LRP
+              conservation property
+              through concept matching, enabling faithful pixel-level concept attributions. Please refer to our paper
+              for full
+              derivation and more qualitative examples.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-max-desktop">
@@ -352,20 +488,22 @@
         issues. Additionally, we thank Ada Görgün and Amin Parchami-Araghi for their helpful discussions.
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title" style="color: #006c66;">BibTeX</h2>
-      <pre><code>@inproceedings{pham25cave,
-      title     = {Escaping Plato's Cave: Robust Conceptual Reasoning through Interpretable 3D Neural Object Volumes},
-      author    = {Pham, Nhi and Schiele, Bernt and Kortylewski, Adam and Fischer, Jonas},
-      booktitle = {arXiv},
-      year      = {2025},}</code></pre>
-    </div>
-  </section>
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title" style="color: #006c66;">BibTeX</h2>
+        <pre><code>@inproceedings{pham26interpretable,
+    title     = {Robust Conceptual Reasoning through Interpretable 3D Neural Object Volumes},
+    author    = {Pham, Nhi and Jesslen, Artur and Schiele, Bernt and Kortylewski, Adam and Fischer, Jonas},
+    booktitle = {The Fourteenth International Conference on Learning Representations},
+    year      = {2026},
+    url       = {https://openreview.net/forum?id=VSPLa2Sito}
+}</code></pre>
+      </div>
+    </section>
 
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </body>
 

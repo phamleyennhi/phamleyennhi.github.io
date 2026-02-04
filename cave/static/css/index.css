@@ -90,6 +90,10 @@ body {
 }
 
 .author-block {
+  display: block;
+}
+
+.author-inline-block {
   display: inline-block;
 }
 
@@ -202,10 +206,6 @@ body {
 
 .slider-navigation-previous {
   left: 10px;
-}
-
-.sudoku {
-  margin-top: 0% !important;
 }
 
 .images-carousel .slider-pagination {
