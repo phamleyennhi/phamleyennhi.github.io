@@ -305,19 +305,30 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" style="color: #006c66;">Attributing Concepts with 3D-aware LRP</h2>
+          <h2 class="title is-3" style="color: #006c66;">Attributing Concepts with NOV-aware LRP</h2>
           <div class="content has-text-justified">
             <div class="method-block img">
               <img src="./static/images/lrp.png" alt="lrp" , style="max-width: 100%;">
             </div>
             <p>
-              To obtain input-level explanations for our neural object volume concepts, we adapt layer-wise
+              To obtain input-level explanations for our neural object volume (NOV) concepts, we adapt layer-wise
               relevance
-              propagation (LRP) to volumetric architectures. Our 3D-aware redistribution rule preserves LRP
+              propagation (LRP) to volumetric architectures. Our NOV-aware redistribution rule preserves LRP
               conservation property
               through concept matching, enabling faithful pixel-level concept attributions. Please refer to our paper
               for full
               derivation and more qualitative examples.
+            </p>
+            <div class="method-block img">
+              <img src="./static/images/lrp_ab.png" alt="lrp_ab" , style="max-width: 100%;">
+            </div>
+            <p>
+              Our NOV-aware LRP correctly attributes concepts and yields localised explanations, even under different
+              OOD
+              settings:
+              snow and 40-60% (heavy) occlusion. Colors indicate the top-5 class-wise concepts per row and are not
+              comparable
+              across rows
             </p>
           </div>
         </div>
