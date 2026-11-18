@@ -140,3 +140,8 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+.news-scroll {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
